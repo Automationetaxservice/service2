@@ -2,11 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
-    <title>React App</title>
     <script>
       var panel = document.querySelector(".slds-utility-panel.slds-is-open");
       if(panel){
@@ -175,7 +172,7 @@
           document.getElementById('rentaIngresoDiv').classList.add("hidden");
         }
       }
-    
+      
       function parentezcoGreetCheckAll(source){
         checkboxes = document.getElementsByName('parentezcoTitularGreet[]'); 
         for(var i=0, n=checkboxes.length;i<n;i++) { 
@@ -236,6 +233,13 @@
       }
       function notasCRP(valor){
         document.getElementById("notesCRP").value = valor.value;
+      }
+      function closeModal(){
+        const modal = document.querySelector(".modal");
+        const overlay = document.querySelector(".overlay");
+
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
       }
     //Recap
       function estadoCivilRecap(){
@@ -335,17 +339,10 @@
         document.getElementById("subjectRecap").value = id;
         document.getElementById("subjectRecapResultados").innerHTML = "";
       }
-      function closeModal(){
-        const modal = document.querySelector(".modal");
-        const overlay = document.querySelector(".overlay");
-
-        modal.classList.add("hidden");
-        overlay.classList.add("hidden");
-      }
     </script>
   </head>
   <body>
-    <div id="root"></div>
     <div class="overlay hidden"></div>
+    <script src="index.js"></script>
   </body>
 </html>

@@ -1,21 +1,38 @@
 {
-  "name": "cservuce",
+  "name": "cservice",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://automationetaxservice.github.io/cservice",
+  "private": false,
   "dependencies": {
+    "@fullcalendar/core": "^6.1.14",
+    "@fullcalendar/daygrid": "^6.1.14",
+    "@fullcalendar/interaction": "^6.1.14",
+    "@fullcalendar/react": "^6.1.14",
+    "@fullcalendar/timegrid": "^6.1.14",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "buffer": "^6.0.3",
+    "classnames": "^2.5.1",
+    "gh-pages": "^6.1.1",
+    "jquery": "^3.7.1",
+    "jsforce": "^1.11.1",
+    "querystring": "^0.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "stream": "^0.0.3",
+    "timers": "^0.1.1",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=8080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
