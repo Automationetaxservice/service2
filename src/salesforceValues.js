@@ -3,7 +3,7 @@ var functions = require("./functions");
 
 function accountsUser(success){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Owner_User__c FROM Account GROUP BY Owner_User__c").then(async (result) => {
             var accounts = [];
             var accountArray;
@@ -25,7 +25,7 @@ function customerService(success){
     var url = new URL(window.location.href);
     var urlId = url.searchParams.get("Id");
     if(urlId){
-        conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+        conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
             conn.query("SELECT X6_En_que_a_os_le_vamos_a_apoyar__c, Account__c, Account_2__c, CallType__c, Keywords_Cases__c, City__c, Communication_channel__c, Contact__c, Contact_2__c, Country__c, CreatedById, CreatedDate, Cual_es_tu_parentesco_con_el_titular_de__c, Cual_fue_el_ultimo_ano_que_le_ayudamos_c__c, Tipo_de_Llamada__c, Call_Type__c, Hola_buen_dia_se_comunica_a_Francis_Tax__c, Name, Online_Script__c, OwnerId, Parentezco_del_cliente__c, ParentezcoDelCliente__c, PostalCode__c, Priority__c, Que_ano_le_ayudamos_con_impuestos__c, Id, Fast_Note__c, State__c, Street__c, Tipo_de_Agencia__c, Tipo_de_Parentezco__c, TipoCliente__c, TipoHumor_Cliente__c, Type__c, UltimoAnioDeAyuda__c, User__c, Users__c FROM Customer_Service__c WHERE Contact__c='"+urlId+"' ").then((result) => {
                 var customer = [];
                 var lista;
@@ -80,7 +80,7 @@ function customerService(success){
 
 function scriptCase(idCService, accountId, contactId){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Usted_trabaja_para_una_compa_a_donde_t__c, X1_En_apoyo_a_su_servicio_de_declaraci__c, X10_Compro_casa__c, X11_Ya_tiene_todos_los_documentos__c, X12_Ya_tiene_sus_formas_w2__c, X12_Ya_tiene_sus_formas_w2new__c, X12_1_Ademas_de_sus_formas_W2multi__c, X12_1_Ademas_de_sus_formas_W2_usted_o_su__c, X12_2_Para_una_compania__c, X12_3_Cuantas_W_2_tiene__c, X12_4_En_caso_de_tener_esposa_aplica_la__c, X12_5_Cuantas_1099_tiene_o_el_reporte_de__c, X12_6_O_tomara_nuestro_servicio_de_repor__c, X12_7_Recibio_Desempleo__c, X12_8_Tiene_algun_otro_tipo_de_ingreso__c, X12_9_Anotar_otro_tipo_de_formas_de_ingr__c, X13_Cuantas_formas_recibio_o_recibieron__c, X14_Si_menciona_cash_o_Deposito_Directo__c, X15_Tomara_nuestro_servicio_de_reporte_d__c, X16_Usted_cree_que_recibio_mas_ingresos__c, X17_Tiene_algun_otro_tipo_de_ingreso_o_f__c, X18_Cantidad_de_Formas_que_desea_agrega__c, X19_Tiene_algun_tipo_de_ingreso_por_jueg__c, X2_Cu_l_ser_a_el_mejor_horario_para_comu__c, X20_Cantidad_de_formas_que_desea_agregar__c, X21_Cambio_de_seguro_social__c, X21_1_Ya_envio_documentos__c, X22_Quiere_realizar_alguna_actualizacion__c, X23_Pago_cuidado_infantil_para_alguno_de__c, X24_Alguno_de_sus_dependientes_esta_en_l__c, X24_1_Cuantas__c, X24_2_Nombre_de_dependes__c, X25_Gasto_en_utiles_escolares_de_alguno__c, X26_Como_enviara_esta_informacion_a_tra__c, X26_1_Cantidad__c, X27_Se_necesitara_el_monto_por_cada_depe__c, X28_Ademas_de_sus_formas_W2_usted_o_su_p__c, X28_Alguno_de_sus_dependientes_tuvo_gast__c, X29_De_ser_asi_se_solicita_el_nombre_de__c, X3_Quiere_realizar_alguna_actualizaci_n__c, Hay_ingresos_que_su_esposo_a_reportara__c, X3_2_1_Nota_que_quiere_compartir_sobre_i__c, X30_Enviara_algun_documento_para_realiza__c, X31_Notas_Entrevistador__c, X4_Cambio_sus_nombres_legalmente_en_el_a__c, X4_1_Va_a_agregar_o_retirar_algun_depen__c, X5_Hasta_el_ultimo_dia_del_ano_2022_uste__c, X5_0_Estado_Civil__c, X6_Tiene_su_certificado_de_matrimonio__c, X7_Tiene_dependes_que_declara_en_sus_imp__c, X7_Tiene_dependes_que_declara_en_sus_new__c, X8_Va_a_agregar_dependes__c, X8_1_Si_desea_agregar_un_depende__c, X8_2_Menciono_que_tiene_un_depend_month__c, X8_2_Menciono_que_tuvo_un_dependiente_qu__c, X8_3_Alguno_de_sus_dependientes_trabaja__c, X8_4_Preguntarias_Nombre__c, X8_5_Cantidad_de_dinero__c, X8_6_Va_a_retirar_algun_dependiente_o_al__c, X8_6_Va_a_retirar_algun_dependiente_new__c, X8_7_Menciono_que_retira_un_dependiente__c, X8_7_Nombre_Completo_Depende_a_Retirar__c, X9_Va_a_asistir_con_alguien_mas_que_nece__c, Account__c, Cantidad_de_Formas_que_desea_agregar__c, Category__c, Contact__c, CreatedDate, Customer_Support__c, Name, Keywords_Cases__c, Necesita_que_hagamos_sus_CRP_para_sus_in__c, Nombres_Dependes__c, Nombres_Dependes_Retirar__c, Notas1__c, Notas2__c, Notas3__c, Notas4__c, Notas5__c, Notas6__c, Para_el_ano_20xx_abrio_su_propia_compa__c, recibe_su_pago_en_efectivo_o_cheques_per__c, Id, Total_retirar_dependes__c, Usted_tiene_casa_por_renta_como_un_ingre__c, Va_a_declarar_dependes__c, Ya_tiene_su_lista_de_gastos_e_ingresos_r__c, Ya_tiene_todos_los_documentos_de_ingreso__c, Ya_tiene_todos_los_documentos__c FROM Script_Case__c WHERE Customer_Support__c='"+idCService+"' and Account__c='"+accountId+"' and Contact__c='"+contactId+"' LIMIT 1").then((result) => {
             for(var k = 0; k < result.totalSize; k++){
                 var prob = result.records[k];
@@ -184,7 +184,7 @@ function scriptCase(idCService, accountId, contactId){
 
 function keywords(success){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id, Name, Case_Resolution__c FROM Keywords_Cases__c ORDER BY Name").then((result) => {
             var keywords = [];
             var keyArray;
@@ -199,7 +199,7 @@ function keywords(success){
 function verRecap(id){
     var cs = document.getElementById("csList").value;
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id, Hola_buen_dia_se_comunica_a_Francis_Tax__c, Account_2__c, Tipo_de_Llamada__c, Contact_2__c, Cual_fue_el_ultimo_ano_que_le_ayudamos_c__c, Tipo_de_Parentezco__c, Que_ano_le_ayudamos_con_impuestos__c, Tipo_de_Agencia__c, Fast_Note__c FROM Customer_Service__c WHERE Id='"+id+"'").then(async (result) => {
             for(var k = 0; k < result.totalSize; k++){
                 //Recap Textos
@@ -315,7 +315,7 @@ function recapUpdate(){
     for (var a=0; a<asistidoImpuestos.length; a++) { if(asistidoImpuestos[a].checked && asistidoImpuestos[a].value !== "All") { count3++; if(count3 === total3){ checkAsistidoImpuestos += asistidoImpuestos[a].value; }else{ checkAsistidoImpuestos += asistidoImpuestos[a].value + ';'; } } }
 
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Customer_Service__c").update({
             Id: document.getElementById("csList").value,
             Hola_buen_dia_se_comunica_a_Francis_Tax__c: document.getElementById("nombreClienteRecap").value,
@@ -333,7 +333,7 @@ function recapUpdate(){
 }
 function verScript(id){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id, Keywords_Cases__c, X4_1_Va_a_agregar_o_retirar_algun_depen__c, X1_En_apoyo_a_su_servicio_de_declaraci__c, X2_Cu_l_ser_a_el_mejor_horario_para_comu__c, X3_Quiere_realizar_alguna_actualizaci_n__c, X4_Cambio_sus_nombres_legalmente_en_el_a__c, X21_Cambio_de_seguro_social__c, X5_0_Estado_Civil__c, X6_Tiene_su_certificado_de_matrimonio__c, Hay_ingresos_que_su_esposo_a_reportara__c, X3_2_1_Nota_que_quiere_compartir_sobre_i__c, X7_Tiene_dependes_que_declara_en_sus_new__c, X8_4_Preguntarias_Nombre__c, X8_6_Va_a_retirar_algun_dependiente_new__c, X8_Va_a_agregar_dependes__c, X8_7_Nombre_Completo_Depende_a_Retirar__c, X8_7_Menciono_que_retira_un_dependiente__c, X8_3_Alguno_de_sus_dependientes_trabaja__c, X8_5_Cantidad_de_dinero__c, X9_Va_a_asistir_con_alguien_mas_que_nece__c, X23_Pago_cuidado_infantil_para_alguno_de__c, X24_Alguno_de_sus_dependientes_esta_en_l__c, X25_Gasto_en_utiles_escolares_de_alguno__c, X28_Alguno_de_sus_dependientes_tuvo_gast__c, X11_Ya_tiene_todos_los_documentos__c, X12_Ya_tiene_sus_formas_w2new__c, X28_Ademas_de_sus_formas_W2_usted_o_su_p__c, X12_3_Cuantas_W_2_tiene__c, X12_5_Cuantas_1099_tiene_o_el_reporte_de__c, X12_7_Recibio_Desempleo__c, X19_Tiene_algun_tipo_de_ingreso_por_jueg__c, X12_8_Tiene_algun_otro_tipo_de_ingreso__c, X12_9_Anotar_otro_tipo_de_formas_de_ingr__c, X30_Enviara_algun_documento_para_realiza__c, X31_Notas_Entrevistador__c FROM Script_Case__c WHERE Id='"+id+"'").then((result) => {
             for(var k = 0; k < result.totalSize; k++){
                 //Text Recap
@@ -543,7 +543,7 @@ function verScript(id){
 }
 function verCaso(csId, contactId, accountId){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         conn.query("SELECT Id, CaseNumber, CreatedDate, Subject FROM Case WHERE Customer_Support__c='"+csId+"' and ContactId='"+contactId+"' and AccountId='"+accountId+"' ").then((result) => {
             for(var k = 0; k < result.totalSize; k++){
                 document.getElementById("caseNumber").innerHTML = "<a target='_blank' style='color: #054997; text-decoration: none;' class='labelModal' href='https://francistax.my.salesforce.com/"+result.records[k].Id+"'>"+result.records[k].CaseNumber+"</a>";
@@ -577,7 +577,7 @@ function verAuthentication(){
     var conn = new conexionSF();
     var url = new URL(window.location.href);
     var urlId = url.searchParams.get("Id");
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id, FirstName, LastName, Phone, Email, Taxpayer_SSN__c, DOB__c, Nota_Phone__c FROM Contact WHERE Id='"+urlId+"'").then((result) => {
             document.getElementById("spanFirstName").innerHTML = result.records[0].FirstName;
             document.getElementById("firstNameAuth").value = result.records[0].FirstName;
@@ -630,7 +630,7 @@ function verAuthentication(){
 
 function scriptUpdate(){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
             //Obtener Id de Case Resolution relacionado con la Keyword Id del Customer Service
             const key = await conn.sobject('Keywords_Cases__c').retrieve(document.getElementById("subjectRecap").value);
             var caseResolution = key.Case_Resolution__c;
@@ -694,7 +694,7 @@ function scriptUpdate(){
 
 function online_script(success){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id, X0_Buen_dia_tarde_noche__c, X1_Gracias_se_or_Primer_Nombre_Cliente__c, X10_CS_Gracias_en_caso_de_que_usted_cal__c, X11_CS_Ahora_vamos_a_verificar_su_n_mer__c, X12_CS_Gracias_Se_or_me_comparte_por_fa__c, X13_CS_Gracias_se_or_vamos_a_verificar_j__c, X14_CS_Se_or_en_el_pasado_usted_ha_recib__c, X2_CS_El_n_mero_telef_nico_que_tenemos_p__c, X3_CS_Gracias_se_or_el_correo_electr_nic__c, X4_CS_Perfecto_Se_or_usted_cuente_con_n__c, X5_CS_Gracias_Se_or_su_n_mero_es__c, X6_CS_Perfecto_Much_simas_gracias_ya_act__c, X7_CS_La_fecha_de_nacimiento_de_usted_es__c, X8_CS_Ustede_hacido_victima_de_robo_de_i__c, X9_CS_De_acuerdo_hay_posibilidad_de_que__c, Account__c, address__c, cases__c, Category__c, CityContact__c, Client_Type__c, Contact__c, CountryContact__c, CustomerService__c, dob__c, DOBContact__c, email__c, EmailContact__c, events__c, First_Name__c, history__c, Id_Call__c, Id_Customer__c, interview__c, Last_Name__c, Name, notes__c, Notes_Address__c, Notes_DOB__c, Notes_Email__c, Notes_Phone__c, Notes_SSN__c, PhoneContact__c, phone__c, pin__c, service__c, solution__c, ssn__c, SSNContact__c, StateContact__c, StreetContact__c, update__c, welcome__c, ZipCodeContact__c FROM Online_Script__c ORDER BY Name").then((result) => {
             var keywords = [];
             var keyArray;
@@ -761,7 +761,7 @@ function online_script(success){
 
 function greetingUpdate(idCService, ayuda, provieneLlamada, checkParentezco, checktipoAgencia, llamadaAccount, llamadaContact, tipoCliente, checkAsistidoImpuestos, checkapoyarImpuestos){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Customer_Service__c").update({
             Id: idCService,
             Fast_Note__c: ayuda,
@@ -790,7 +790,7 @@ function greetingUpdate(idCService, ayuda, provieneLlamada, checkParentezco, che
 
 function authenticationUpdate(idContact, firstName, lastName, phone, phoneNotes, email, ssn, street, city, state, country, postal_code, dob){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Contact").update({
             Id: idContact,
             FirstName: firstName,
@@ -816,7 +816,7 @@ function authenticationUpdate(idContact, firstName, lastName, phone, phoneNotes,
 }
 function homeDivProbe(){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             Notas1__c: document.getElementById("notesHome").value
@@ -827,7 +827,7 @@ function homeDivProbe(){
 }
 function taxinfoDivProbe(){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             X4_Cambio_sus_nombres_legalmente_en_el_a__c: document.querySelector('input[name="nombreTaxInfoProbe"]:checked').value,
@@ -842,7 +842,7 @@ function filingDivProbe(){
     var conn = new conexionSF(); var certificado, ingresos;
     if(document.querySelector('input[name="certificadoFilingProbe"]:checked')){ certificado = document.querySelector('input[name="certificadoFilingProbe"]:checked').value }else{ certificado = " "}
     if(document.querySelector('input[name="ingresosFilingProbe"]:checked')){ ingresos = document.querySelector('input[name="ingresosFilingProbe"]:checked').value }else{ ingresos = " "}
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             X5_0_Estado_Civil__c: document.querySelector('input[name="estadocivilFilingProbe"]:checked').value,
@@ -862,7 +862,7 @@ function dependentsDivProbe(){
     if(document.querySelector('input[name="trabajaIncomeDependentProbe"]:checked')){ trabaja = document.querySelector('input[name="trabajaIncomeDependentProbe"]:checked').value }else{ trabaja = " "}
     if(document.querySelector('input[name="asistirIncomeDependentProbe"]:checked')){ asistir = document.querySelector('input[name="asistirIncomeDependentProbe"]:checked').value }else{ asistir = " "}
     if(document.querySelector('input[name="extraDeductionDependentProbe"]:checked')){ extra = document.querySelector('input[name="extraDeductionDependentProbe"]:checked').value }else{ extra = " "}
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             Va_a_declarar_dependes__c: document.querySelector('input[name="dependienteDependentsProbe"]:checked').value,
@@ -887,7 +887,7 @@ function incomeDivProbe(){
     if(document.querySelector('input[name="normasIncomeProbe"]:checked')){ normas = document.querySelector('input[name="normasIncomeProbe"]:checked').value }else{ normas = " "}
     if(document.querySelector('input[name="declaraIncomeProbe"]:checked')){ declara = document.querySelector('input[name="declaraIncomeProbe"]:checked').value }else{ declara = " "}
     if(document.querySelector('input[name="crpIncomeProbe"]:checked')){ crp = document.querySelector('input[name="crpIncomeProbe"]:checked').value }else{ crp = " "}
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             Usted_trabaja_para_una_compa_a_donde_t__c: document.querySelector('input[name="retencionIncomeProbe"]:checked').value,
@@ -910,7 +910,7 @@ function incomeDivProbe(){
 
 function crpDivProbe(){
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const ret = await conn.sobject("Script_Case__c").update({
             Id: document.getElementById("scriptCaseId").value,
             X30_Enviara_algun_documento_para_realiza__c: document.querySelector('input[name="crpProbe"]:checked').value,
@@ -926,7 +926,7 @@ function probeSave(){
     !document.getElementById("notesDependents").value.trim() || !document.getElementById("notesIncome").value.trim() || !document.getElementById("notesCRP").value.trim()){
         document.getElementById("messageWarning").innerHTML = "<span class='warningMessage'>Para continuar, se requiere escribir una nota en cada sección</span>"; document.getElementById("messageWarning").classList.remove("hidden"); setTimeout(function() { document.getElementById("messageWarning").classList.add("hidden"); }, 2000);
     }else{
-        conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+        conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
             const ret = await conn.sobject("Script_Case__c").update({
                 Id: document.getElementById("scriptCaseId").value,
                 Notas1__c: document.getElementById("notesHome").value,
@@ -945,7 +945,7 @@ function calendarEvents(success){
     var conn = new conexionSF();
     var firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
     var query = 'SELECT Id, Subject__c, StartTime__c, EndTime__c, PriorityType__c, Description__c, Tipo_de_Cita__c, Color__c FROM Calendar__c WHERE StartTime__c >= $date ORDER BY StartTime__c'.replace('$date', firstDay.toISOString());
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query(query).then((result) => {
             var events = [];
             var eventArray;
@@ -999,7 +999,7 @@ function agregarEvento(){
     if(prioridad === "Clients-Support" && tipoEvento === "Presencial"){ color = "#E9E9E9" }else
     if( (prioridad === "Low-Mid" && tipoEvento === "Virtual") || (prioridad === "Monthly-Clients" && tipoEvento === "Virtual") ){ color = "#CD40FF"}
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         const con = await conn.sobject('Contact').retrieve(contact);
         var contactName = con.Name;
         if(bandera === true && bandera2 === true){
@@ -1064,7 +1064,7 @@ function updateEvento(){
     if(descripcion && descripcion !== " "){ bandera2 = true; }else{ bandera2 = false; alert("Se requiere una descripción para el evento"); }
 
     var conn = new conexionSF();
-    conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+    conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
         if(bandera === true && bandera2 === true){
             const owner = await conn.sobject('Calendar__c').retrieve(document.getElementById("idEvento").value);
             await conn.sobject("Calendar__c").update({   

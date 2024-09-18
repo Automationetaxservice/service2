@@ -24,7 +24,7 @@ exports.csList = csList;
 
 var accountList = function accountList(account){
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
     const cs = await conn.sobject('Customer_Service__c').retrieve(account);
     var id = cs.Account_2__c;
     try{
@@ -43,7 +43,7 @@ function accounts(account){
   }
   document.getElementById("llamadaAccountGreet").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name FROM Account WHERE Name LIKE '%"+account+"%' ORDER By Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -59,7 +59,7 @@ function accountsRecap(account){
   }
   document.getElementById("accountRecap").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name FROM Account WHERE Name LIKE '%"+account+"%' ORDER By Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -82,7 +82,7 @@ var accountUserList = function test(){
 
 var contactList = function contactList(contacto){
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
     const cs = await conn.sobject('Customer_Service__c').retrieve(contacto);
     var id = cs.Contact_2__c;
     try{
@@ -101,7 +101,7 @@ function contacts(contact){
   }
   document.getElementById("llamadaContactGreet").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name FROM Contact WHERE Name LIKE '%"+contact+"%' ORDER By Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -117,7 +117,7 @@ function contactsRecap(contact){
   }
   document.getElementById("contactRecap").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name FROM Contact WHERE Name LIKE '%"+contact+"%' ORDER By Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -131,7 +131,7 @@ function contactsRecap(contact){
 var keywordList = function test(){
   var cs = document.getElementById("csList").value;
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
     try{
       const kc = await conn.sobject('Customer_Service__c').retrieve(cs);
       var id = kc.Keywords_Cases__c;
@@ -148,7 +148,7 @@ function keywords(){
   var key = document.getElementById("keywordListName").value;
   document.getElementById("keywordList").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name, Case_Resolution__c FROM Keywords_Cases__c WHERE Name LIKE '%"+key+"%' ORDER BY Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -169,7 +169,7 @@ function keywordsRecap(){
   var key = document.getElementById("subjectRecapName").value;
   document.getElementById("subjectRecap").value = "";
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
     conn.query("SELECT Id, Name, Case_Resolution__c FROM Keywords_Cases__c WHERE Name LIKE '%"+key+"%' ORDER BY Name").then((result) => {
       var elemento = "";
       for(var k = 0; k < result.totalSize; k++){
@@ -295,7 +295,7 @@ var nextScript = function nextScript(){
     if(true){
       next(child);
       var conn = new conexionSF();
-      conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then((res) => {
+      conn.login('doc@francistaxservice.com', 'Servidor2024.').then((res) => {
         conn.query("SELECT Id FROM Case WHERE Customer_Support__c ='"+idCService+"' and AccountId='"+accountId+"' and ContactId='"+contactId+"' ").then((result) => {
           if(result.totalSize === 0){
             document.getElementById("modalScriptNext").style.display = "none";
@@ -514,7 +514,7 @@ function newCase(){
   }
   
   var conn = new conexionSF();
-  conn.login('eautomationdep@francistaxservice.com', 'DashFLTowe16.').then(async (res) => {
+  conn.login('doc@francistaxservice.com', 'Servidor2024.').then(async (res) => {
     conn.query("SELECT Id FROM Case WHERE Customer_Support__c ='"+idCS+"' and AccountId='"+accountId+"' and ContactId='"+contactId+"' ").then(async (result) => {
       
       if(result.totalSize === 0){
