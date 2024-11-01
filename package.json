@@ -1,7 +1,7 @@
 {
   "name": "cservice",
   "version": "0.1.0",
-  "homepage": "https://Automationetaxservice.github.io/service/build",
+  "homepage": "https://Automationetaxservice.github.io/service2/build",
   "private": false,
   "dependencies": {
     "@fullcalendar/core": "^6.1.14",
